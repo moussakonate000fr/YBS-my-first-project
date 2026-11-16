@@ -1,3 +1,27 @@
+/* Google Fonts: Bebas Neue (headings) + Lato (text) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Colour variables */
+:root {
+    --dark: #1a1a1a;
+    --light: #f7f5f2;
+    --gold: #c9ad6e;
+    --grey: #6b6b6b;
+    --heading-font: 'Bebas Neue', sans-serif;
+    --text-font: 'Lato', sans-serif;
+}
+
+/* Global styles */
+body {
+    font-family: var(--text-font);
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    letter-spacing: 2px;
+}
 /* Footer: social icons in circles */
 .social-icon {
     display: flex;
@@ -15,4 +39,33 @@
 .social-icon:hover {
     background-color: #fff;
     color: #212529;
+}
+/* Navbar logo */
+.navbar-brand {
+font-family: var(--heading-font);
+color: var(--gold);
+font-size: 2rem;
+letter-spacing: 3px;
+}
+/* Hero: photo with a dark layer on top */
+#hero {
+    min-height: 75vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../images/hero.jpg") center / cover no-repeat;
+}
+
+/* Gold button (Book now) */
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 0;
+    padding: 12px 32px;
+}
+
+.btn-gold:hover {
+    background-color: var(--light);
+    color: var(--dark);
 }
