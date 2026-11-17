@@ -11,6 +11,11 @@
     --text-font: 'Lato', sans-serif;
 }
 
+#why svg {
+    color: var(--gold);
+    font-size: 2.5rem;
+}
+
 /* Global styles */
 body {
     font-family: var(--text-font);
