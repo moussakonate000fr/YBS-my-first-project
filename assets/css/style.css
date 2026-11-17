@@ -81,3 +81,8 @@ letter-spacing: 3px;
     margin: 0 0.5rem;
     align-self: center;
 }
+
+/* Map frame */
+#visit .ratio {
+    --bs-aspect-ratio: 50%;
+}
