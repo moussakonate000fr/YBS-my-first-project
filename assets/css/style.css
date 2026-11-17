@@ -74,3 +74,10 @@ letter-spacing: 3px;
     background-color: var(--light);
     color: var(--dark);
 }
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted var(--gold);
+    margin: 0 0.5rem;
+    align-self: center;
+}
