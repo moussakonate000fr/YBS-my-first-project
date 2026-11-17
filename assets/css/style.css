@@ -79,7 +79,13 @@ letter-spacing: 3px;
 #hero {
     min-height: 75vh;
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-        url("../images/hero.jpg") center / cover no-repeat;
+        url("../images/hero.jpg") center / cover no-repeat;      
+}
+
+/* Services page: same hero, different photo */
+#hero.services-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../images/services-hero.jpg") center / cover no-repeat;
 }
 
 /* Gold button (Book now) */
