@@ -84,5 +84,5 @@ letter-spacing: 3px;
 
 /* Map frame */
 #visit .ratio {
-    --bs-aspect-ratio: 50%;
+    --bs-aspect-ratio: 25%;
 }
