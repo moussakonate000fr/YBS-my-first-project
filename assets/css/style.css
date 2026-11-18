@@ -150,3 +150,13 @@ letter-spacing: 3px;
 #contact .form-select:focus {
     box-shadow: 0 0 0 2px var(--gold);
 }
+
+/* Contact links: dark, gold on hover */
+#contact a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+#contact a:hover {
+    color:  var(--dark);
+}
