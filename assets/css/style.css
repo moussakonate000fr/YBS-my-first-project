@@ -71,10 +71,7 @@ letter-spacing: 3px;
 .navbar-nav .nav-link:hover {
   color: var(--gold);
 }
-
-.navbar .nav-link:hover {
-  color: var(--gold);
-}
+      
 /* Hero: photo with a dark layer on top */
 #hero {
     min-height: 75vh;
