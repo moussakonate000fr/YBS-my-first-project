@@ -124,3 +124,8 @@ letter-spacing: 3px;
     color: var(--gold);
     background: linear-gradient(var(--gold), var(--gold)) center / 100% 1px no-repeat;
 }
+/* Service cards: all photos the same shape */
+#prices .card-img-top {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
