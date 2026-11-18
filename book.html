@@ -30,20 +30,70 @@
     </div>
   </div>
 </nav>
+
 <!-- Main content -->
 <main>
+
  <!-- Hero: services photo, title and Book now button -->
 <section id="hero" class="book-hero d-flex flex-column justify-content-center align-items-center text-center text-white px-3">
     <h1 class="display-3">Book your visit</h1>
     <p class="fst-italic fs-5 mb-4">Choose a service, a day and a time</p>
 </section> 
 
+
+   <!-- Contact form -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="text-center section-title">Send us a message</h2>
+                <form class="col-lg-10 mx-auto mt-4">
+            <div class="row g-3">
+                <!-- Name -->
+                <div class="col-md-6">
+                    <label for="name" class="visually-hidden">Full name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required>
+                </div>
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
+                </div>
+                <!-- Phone -->
+                <div class="col-md-6">
+                    <label for="phone" class="visually-hidden">Phone number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone number" required>
+                </div>
+                <!-- Service -->
+                <div class="col-md-6">
+                    <label for="service" class="visually-hidden">Service</label>
+                    <select id="service" name="service" class="form-select">
+                        <option value="" selected>Which service? (optional)</option>
+                        <option>Haircut</option>
+                        <option>Haircut + beard</option>
+                        <option>Beard trim</option>
+                        <option>Shave</option>
+                        <option>Kids cut</option>
+                    </select>
+                </div>
+                <!-- Message -->
+                <div class="col-12">
+                    <label for="message" class="visually-hidden">Your message</label>
+                    <textarea id="message" name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                </div>
+                <!-- Send button -->
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-gold btn-lg">Send message</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 </main>
-   
+
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-4">
     <p class="mb-1">12 Garratt Lane, Wandsworth, London SW18</p>
     <p>Tel: 020 7946 0123</p>
+
     <!-- Social links: open in a new tab -->
     <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
         <li>

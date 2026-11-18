@@ -135,3 +135,18 @@ letter-spacing: 3px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
 }
+
+/* Contact form: soft grey boxes, no border */
+#contact .form-control,
+#contact .form-select {
+    background-color: #ededed;
+    border: 0;
+    border-radius: 0;
+    padding: 1rem 1.25rem;
+}
+
+/* Gold line when a box is clicked (keyboard users can see where they are) */
+#contact .form-control:focus,
+#contact .form-select:focus {
+    box-shadow: 0 0 0 2px var(--gold);
+}
