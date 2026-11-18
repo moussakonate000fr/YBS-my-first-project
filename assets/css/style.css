@@ -79,6 +79,12 @@ letter-spacing: 3px;
         url("../images/hero.jpg") center / cover no-repeat;      
 }
 
+#hero.book-hero {
+    min-height: 75vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../images/book-hero.jpg") center / cover no-repeat;
+}
+
 /* Services page: same hero, different photo */
 #hero.services-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
