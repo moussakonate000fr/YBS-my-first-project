@@ -130,11 +130,6 @@ letter-spacing: 3px;
     color: var(--gold);
     background: linear-gradient(var(--gold), var(--gold)) center / 100% 1px no-repeat;
 }
-/* Service cards: all photos with the same shape */
-#prices .card-img-top {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
 
 /* Contact form: soft grey boxes, no border */
 #contact .form-control,
@@ -159,4 +154,41 @@ letter-spacing: 3px;
 
 #contact a:hover {
     color:  var(--dark);
+}
+
+/* Services: phone = one row per service (photo | text) */
+.service-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Every photo the same shape, cropped not stretched */
+.service-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.service-name {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.service-price {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* Tablet (768px+): each service becomes a card */
+@media screen and (min-width: 768px) {
+    .service-item,
+    .service-book {
+        height: 100%;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.375rem;
+        overflow: hidden;
+    }
 }
