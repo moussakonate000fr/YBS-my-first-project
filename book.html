@@ -1,138 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YBS | Book</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://kit.fontawesome.com/a1428b703b.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 z-3" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">YBS</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/a1428b703b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 z-3"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">YBS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="book.html"
+                >Book</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+      <!-- Hero: services photo, title and Book now button -->
+      <section
+        id="hero"
+        class="book-hero d-flex flex-column justify-content-center align-items-center text-center text-white px-3"
+      >
+        <h1 class="display-3">Book your visit</h1>
+        <p class="fst-italic fs-5 mb-4">Choose a service, a day and a time</p>
+      </section>
+
+      <!-- Online booking (Setmore) -->
+      <section id="booking" class="py-5 text-center">
+        <div class="container">
+          <h2 class="section-title">Book online</h2>
+          <p class="mt-4">Pick your service, your barber, a day and a time.</p>
+          <button
+            id="Anywhere_button_iframe"
+            class="anywhere-book-now-button btn btn-gold btn-lg"
+            data-booking-url="https://moussafieo.setmore.com"
+            data-new-tab="false"
+          >
+            Book now
+          </button>
+        </div>
+      </section>
+
+      <!-- Contact form -->
+      <section id="contact" class="py-5">
+        <div class="container">
+          <h2 class="text-center section-title">Send us a message</h2>
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="col-lg-10 mx-auto mt-4"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="8db98e92-422d-483c-b527-760c602f4d89"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="New message from the YBS website"
+            />
+            <div class="row g-3">
+              <!-- Name -->
+              <div class="col-md-6">
+                <label for="name" class="visually-hidden">Full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <!-- Email -->
+              <div class="col-md-6">
+                <label for="email" class="visually-hidden">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+              <!-- Phone -->
+              <div class="col-md-6">
+                <label for="phone" class="visually-hidden">Phone number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="Phone number"
+                  required
+                />
+              </div>
+              <!-- Service -->
+              <div class="col-md-6">
+                <label for="service" class="visually-hidden">Service</label>
+                <select id="service" name="service" class="form-select">
+                  <option value="" selected>Which service? (optional)</option>
+                  <option>Haircut</option>
+                  <option>Haircut + beard</option>
+                  <option>Beard trim</option>
+                  <option>Shave</option>
+                  <option>Kids cut</option>
+                </select>
+              </div>
+              <!-- Message -->
+              <div class="col-12">
+                <label for="message" class="visually-hidden"
+                  >Your message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Message"
+                  required
+                ></textarea>
+              </div>
+              <!-- Send button -->
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-gold btn-lg">
+                  Send message
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- Contact details -->
+          <div class="row text-center mt-5 pt-4">
+            <div class="col-md-4 mb-4">
+              <h3 class="section-title">Phone</h3>
+              <p><a href="tel:+442079460123">020 7946 0123</a></p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h3 class="section-title">Email</h3>
+              <p>
+                <a href="mailto:hello@ybsbarbers.co.uk"
+                  >hello@ybsbarbers.co.uk</a
+                >
+              </p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h3 class="section-title">Address</h3>
+              <p>12 Garratt Lane,<br />Wandsworth, London SW18</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      <!-- Social links: open in a new tab -->
+      <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
+        <li>
+          <a
+            href="https://wa.me/447946012300"
+            target="_blank"
+            rel="noopener"
+            aria-label="Message us on WhatsApp (opens in a new tab)"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"  href="services.html">Services</a>
+        <li>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Instagram page (opens in a new tab)"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="book.html">Book</a>
+        <li>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our Facebook page (opens in a new tab)"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit our TikTok page (opens in a new tab)"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
         </li>
       </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Main content -->
-<main>
-
- <!-- Hero: services photo, title and Book now button -->
-<section id="hero" class="book-hero d-flex flex-column justify-content-center align-items-center text-center text-white px-3">
-    <h1 class="display-3">Book your visit</h1>
-    <p class="fst-italic fs-5 mb-4">Choose a service, a day and a time</p>
-</section> 
-
-
-   <!-- Contact form -->
-<section id="contact" class="py-5">
-    <div class="container">
-        <h2 class="text-center section-title">Send us a message</h2>
-        <form action="https://api.web3forms.com/submit" method="POST" class="col-lg-10 mx-auto mt-4">            
-            <input type="hidden" name="access_key" value="8db98e92-422d-483c-b527-760c602f4d89">
-            <input type="hidden" name="subject" value="New message from the YBS website">
-            <div class="row g-3">
-                <!-- Name -->
-                <div class="col-md-6">
-                    <label for="name" class="visually-hidden">Full name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required>
-                </div>
-                <!-- Email -->
-                <div class="col-md-6">
-                    <label for="email" class="visually-hidden">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
-                </div>
-                <!-- Phone -->
-                <div class="col-md-6">
-                    <label for="phone" class="visually-hidden">Phone number</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone number" required>
-                </div>
-                <!-- Service -->
-                <div class="col-md-6">
-                    <label for="service" class="visually-hidden">Service</label>
-                    <select id="service" name="service" class="form-select">
-                        <option value="" selected>Which service? (optional)</option>
-                        <option>Haircut</option>
-                        <option>Haircut + beard</option>
-                        <option>Beard trim</option>
-                        <option>Shave</option>
-                        <option>Kids cut</option>
-                    </select>
-                </div>
-                <!-- Message -->
-                <div class="col-12">
-                    <label for="message" class="visually-hidden">Your message</label>
-                    <textarea id="message" name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                </div>
-                <!-- Send button -->
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-gold btn-lg">Send message</button>
-                </div>
-            </div>
-        </form>
-        <!-- Contact details -->
-<div class="row text-center mt-5 pt-4">
-    <div class="col-md-4 mb-4">
-        <h3 class="section-title">Phone</h3>
-        <p><a href="tel:+442079460123">020 7946 0123</a></p>
-    </div>
-    <div class="col-md-4 mb-4">
-        <h3 class="section-title">Email</h3>
-        <p><a href="mailto:hello@ybsbarbers.co.uk">hello@ybsbarbers.co.uk</a></p>
-    </div>
-    <div class="col-md-4 mb-4">
-        <h3 class="section-title">Address</h3>
-        <p>12 Garratt Lane,<br>Wandsworth, London SW18</p>
-    </div>
-</div>
-    </div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-4">
-    
-    <!-- Social links: open in a new tab -->
-    <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
-        <li>
-            <a href="https://wa.me/447946012300" target="_blank" rel="noopener" aria-label="Message us on WhatsApp (opens in a new tab)" class="social-icon">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)" class="social-icon">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)" class="social-icon">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="Visit our TikTok page (opens in a new tab)" class="social-icon">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-        </li>
-    </ul>
-</footer>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+  </body>
 </html>
