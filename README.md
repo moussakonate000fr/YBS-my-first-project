@@ -60,7 +60,7 @@ All 7 stories are in the **Done** column of the board.
 
 ### Wireframes
 
-I drew wireframes for the 3 pages on phone, tablet and laptop before coding.
+I planned wireframes for the 3 pages on phone, tablet and laptop before coding (made with AI help, see the AI declaration). The finished site follows them, except that the Services page shows each service as a row with a small photo on phones.
 
 ![Wireframes](assets/images/readme/wireframes.png)
 
@@ -167,7 +167,7 @@ The `access_key` in the form is **public by design**: it only says which inbox t
 | Open the site on a phone and tap the burger | The menu opens and closes | Pass |
 | Click "Book now" on the Home and Services pages | The Book page opens | Pass |
 | Click "Book now" on the Book page | The Setmore booking window opens | Pass |
-| Make a test booking in Setmore | Booking made and confirmation email received | Pass |
+| Make a test booking in Setmore | "Booking confirmed" screen shown and confirmation email received | Pass |
 | Send the contact form with all fields | Email received and thank-you page shown | Pass |
 | Send the contact form with an empty field | The browser asks me to fill it in | Pass |
 | Type an email without @ | The browser says the email is not valid | Pass |
@@ -175,25 +175,38 @@ The `access_key` in the form is **public by design**: it only says which inbox t
 | Click the social icons | The site opens in a new tab | Pass |
 | Check the Services page on phone, tablet and laptop | 1 row, then 2 cards, then 3 cards per line | Pass |
 
-![Setmore confirmation email](assets/images/readme/setmore-confirmation.png)
+![Setmore booking confirmed screen](assets/images/readme/setmore-confirmation.png)
 
 ### Validation
 
 | Page | W3C HTML validator | Result |
 |---|---|---|
-| index.html | https://validator.w3.org/nu/ | TO DO |
-| services.html | https://validator.w3.org/nu/ | TO DO |
-| book.html | https://validator.w3.org/nu/ | TO DO |
-| thankyou.html | https://validator.w3.org/nu/ | TO DO |
-| style.css | https://jigsaw.w3.org/css-validator/ | TO DO |
+| index.html | https://validator.w3.org/nu/ | Pass: no errors or warnings |
+| services.html | https://validator.w3.org/nu/ | Pass: no errors or warnings |
+| book.html | https://validator.w3.org/nu/ | Pass: no errors or warnings |
+| thankyou.html | https://validator.w3.org/nu/ | Pass: no errors or warnings |
+| style.css | https://jigsaw.w3.org/css-validator/ | Pass: no errors |
+
+The HTML validator shows some green "Info" messages about the `/` at the end of tags like `meta`, `link` and `img`. Prettier adds it when it formats my code. It has no effect, so I left it.
+
+The CSS validator shows 4 warnings: "Due to their dynamic nature, CSS variables are currently not statically checked". This only means the validator can't check `var(--gold)` and my other colour and font variables. It is not an error.
+
+![W3C HTML result](assets/images/readme/w3c-html.png)
+![W3C CSS result](assets/images/readme/w3c-css.png)
 
 ### Lighthouse
 
 | Page | Performance | Accessibility | Best practices | SEO |
 |---|---|---|---|---|
-| Home | TO DO | TO DO | TO DO | TO DO |
-| Services | TO DO | TO DO | TO DO | TO DO |
-| Book | TO DO | TO DO | TO DO | TO DO |
+| Home | 72 to 83 | 95 | 77 | 100 |
+| Services | 72 to 77 | 95 | 100 | 100 |
+| Book | 75 to 87 | 96 | 77 | 100 |
+
+Tested on **mobile** (Lighthouse's hardest setting: slow phone and slow network). The Performance score changes a little each time I run it, so I give the range.
+
+- **Performance:** my photos came straight from Pexels and weighed 24 MB in total. I resized and compressed them to about 1 MB, with the same file names. The score left is mostly the time it takes to load Bootstrap, Font Awesome and Google Fonts from other websites.
+- **Best practices 77 on Home and Book:** Lighthouse says "Uses third-party cookies: 18 cookies found". They come from the Google Map (Home) and the Setmore booking script (Book). They are other companies' tools and they set third-party cookies, which I can't change. The Services page has neither, and it scores 100.
+
 
 ### Browsers and devices
 
@@ -210,6 +223,9 @@ Tested in Chrome and Safari on a Mac, on an iPhone, and with Chrome DevTools (ph
 | Favicon paths from favicon.io didn't work | They start with `/`, which points to the wrong folder on GitHub Pages | Used relative paths (`assets/favicon/...`) |
 | The thank-you page showed a 404 | The new file was not saved and pushed yet | Saved, committed and pushed `thankyou.html` |
 | The service photos were huge and the styles didn't work | A `}` was missing at the end of the `.section-title::after` rule, so the next CSS rules were inside it | Added the missing `}` |
+| W3C error on services.html: "Unclosed element div" | When I changed the cards to rows, I deleted the closing `</div>` of the container by mistake | Added `</div>` before `</section>` |
+| Lighthouse Performance was low | The Pexels photos were huge (up to 6720px wide, 24 MB in total) | Resized and compressed them to about 1 MB in total |
+| Lighthouse SEO was 90 | My pages had no meta description | Added a `meta name="description"` line to the head of every page (SEO went to 100) |
 | Service photos had different shapes | Each photo had a different size | `aspect-ratio: 4 / 3` and `object-fit: cover` |
 
 No known bugs left.
@@ -243,12 +259,12 @@ The site is deployed with **GitHub Pages**:
 
 - Home hero (vintage barber chairs): photo by wal_172619 on [Pexels](https://www.pexels.com/)
 - Services hero ("Person holding a gold razor"): photo by RDNE Stock project on [Pexels](https://www.pexels.com/photo/person-holding-a-gold-razor-7697316/)
-- Book hero (red barber chair): photo by NAME on [Pexels](LINK)
-- Haircut: photo by NAME on [Pexels](LINK)
-- Haircut + beard: photo by NAME on [Pexels](LINK)
-- Beard trim: photo by NAME on [Pexels](LINK)
-- Shave: photo by NAME on [Pexels](LINK)
-- Kids cut: photo by NAME on [Pexels](LINK)
+- Book hero (red barber chair): photo by Ryan Klaus on [Pexels](https://www.pexels.com/photo/a-red-barber-leather-padded-chair-12304516/)
+- Haircut: photo by Sự Minh on [Pexels](https://www.pexels.com/photo/unrecognizable-hands-trimming-male-haircut-with-trimmer-11333875/)
+- Haircut + beard: photo by Brian Silva on [Pexels](https://www.pexels.com/photo/man-smiling-during-a-haircut-in-barbershop-39559309/)
+- Beard trim: photo by RDNE Stock project on [Pexels](https://www.pexels.com/photo/barber-shaving-customer-with-a-razor-7697441/)
+- Shave: photo by RDNE Stock project on [Pexels](https://www.pexels.com/photo/a-barber-covering-a-client-s-face-hot-towel-7697492/)
+- Kids cut: photo by RDNE Stock project on [Pexels](https://www.pexels.com/photo/boy-in-blue-long-sleeves-shirt-sitting-on-barber-chair-7697398/)
 
 ### Code and design
 
