@@ -1,7 +1,14 @@
-/* Google Fonts: Bebas Neue (headings) + Lato (text) */
+/*
+  GOOGLE FONTS: Bebas Neue (tall capitals for titles) and Lato (easy to read for text).
+  Imported here so every page gets them.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* Colour variables */
+/*
+  COLOUR AND FONT VARIABLES
+  Defined once here, used everywhere with var(), for example color: var(--gold).
+  To change the gold on the whole site, change it only here.
+*/
 :root {
     --dark: #1a1a1a;
     --light: #ffffff;
@@ -11,27 +18,38 @@
     --text-font: 'Lato', sans-serif;
 }
 
+/*
+  Why choose us icons (Home): gold and big. The Font Awesome kit turns each i tag into
+  an svg, so I style "svg".
+*/
 #why svg {
     color: var(--gold);
     font-size: 2.5rem;
 }
 
+/* Every section title is gold. */
 .section-title {
     color: var(--gold);
 }
 
-/* Global styles */
+/* WHOLE PAGE: Lato text, white background, dark text. */
 body {
     font-family: var(--text-font);
     background-color: var(--light);
     color: var(--dark);
 }
 
+/* All headings use Bebas Neue, with a little space between the letters. */
 h1, h2, h3 {
     font-family: var(--heading-font);
     letter-spacing: 2px;
 }
-/* Footer: social icons in circles */
+/*
+  FOOTER SOCIAL ICONS: each icon sits in a gold circle.
+  display flex + align-items + justify-content: centre the icon inside the circle.
+  44px: big enough to tap with a finger (accessibility). border-radius 50% turns the
+  square into a circle.
+*/
 .social-icon {
     display: flex;
     align-items: center;
@@ -45,11 +63,12 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
+/* Hover: the circle fills white and the icon turns dark. */
 .social-icon:hover {
     background-color: #fff;
     color: #212529;
 }
-/* Navbar logo */
+/* NAVBAR LOGO: the gold YBS text in Bebas Neue. */
 .navbar-brand {
 font-family: var(--heading-font);
 color: var(--gold);
@@ -57,41 +76,55 @@ font-size: 2rem;
 letter-spacing: 3px;
 }
 
-/* Navbar links: white */
+/* Navbar links are white because they sit on the dark hero photo. */
 .navbar .nav-link {
   color: #fff;
 }
 
-/* Active link (current page) stays white */
+/* The link of the current page (class active) stays white too. */
 .navbar-nav .nav-link.active {
   color: #fff;
 }
 
-/* All links turn gold on hover */
+/* Any navbar link turns gold when the mouse is on it. */
 .navbar-nav .nav-link:hover {
   color: var(--gold);
 }
       
-/* Hero: photo with a dark layer on top */
+/*
+  HERO (Home page)
+  A dark see-through layer (linear-gradient, 55% black) on top of the photo, so the
+  white text is easy to read.
+  center / cover: the photo is centred and fills the space without stretching. 75vh =
+  75% of the screen height.
+*/
 #hero {
     min-height: 75vh;
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
         url("../images/hero.jpg") center / cover no-repeat;      
 }
 
+/*
+  Book page and thank-you page: same hero, different photo.
+  #hero.book-hero (no space) means "id hero AND class book-hero", so it only changes the
+  pages with that class.
+*/
 #hero.book-hero {
     min-height: 75vh;
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
         url("../images/book-hero.jpg") center / cover no-repeat;
 }
 
-/* Services page: same hero, different photo */
+/* Services page: same hero, different photo (same idea as above). */
 #hero.services-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
         url("../images/services-hero.jpg") center / cover no-repeat;
 }
 
-/* Gold button (Book now) */
+/*
+  GOLD BUTTON (Book now, Send message): my own button style, used together with
+  Bootstrap's btn class. border-radius 0 = square corners.
+*/
 .btn-gold {
     background-color: var(--gold);
     color: var(--dark);
@@ -102,11 +135,16 @@ letter-spacing: 3px;
     padding: 12px 32px;
 }
 
+/* Hover: the button turns white. */
 .btn-gold:hover {
     background-color: var(--light);
     color: var(--dark);
 }
 
+/*
+  OPENING HOURS dotted line (Home): flex-grow 1 makes this empty span grow to fill the
+  space between the day and the time. Its dotted bottom border draws the line.
+*/
 .dots {
     flex-grow: 1;
     border-bottom: 1px dotted var(--gold);
@@ -114,12 +152,20 @@ letter-spacing: 3px;
     align-self: center;
 }
 
-/* Map frame */
+/*
+  MAP SHAPE (Home): Bootstrap's ratio class reads --bs-aspect-ratio. 25% = the map is a
+  quarter as tall as it is wide.
+*/
 #visit .ratio {
     --bs-aspect-ratio: 25%;
 }
 
-/* Add glod line under each tittles */
+/*
+  GOLD DIVIDER under every section title
+  ::after adds something after the title: a small diamond (the character code 25C6).
+  The background gradient draws a thin 1px gold line through the diamond, 90px wide and
+  centred.
+*/
 .section-title::after {
     content: "\25C6";
     display: block;
@@ -131,7 +177,10 @@ letter-spacing: 3px;
     background: linear-gradient(var(--gold), var(--gold)) center / 100% 1px no-repeat;
 }
 
-/* Contact form: soft grey boxes, no border */
+/*
+  CONTACT FORM BOXES (Book page): light grey, no border, square corners, more space
+  inside.
+*/
 #contact .form-control,
 #contact .form-select {
     background-color: #ededed;
@@ -140,41 +189,53 @@ letter-spacing: 3px;
     padding: 1rem 1.25rem;
 }
 
-/* Gold line when a box is clicked (keyboard users can see where they are) */
+/*
+  When a box is clicked, a gold outline shows, so keyboard users can see where they are
+  (accessibility).
+*/
 #contact .form-control:focus,
 #contact .form-select:focus {
     box-shadow: 0 0 0 2px var(--gold);
 }
 
-/* Contact links: dark, gold on hover */
+/* Phone and email links: dark, with no underline. */
 #contact a {
     color: var(--dark);
     text-decoration: none;
 }
 
+/* Hover: they stay dark. */
 #contact a:hover {
     color:  var(--dark);
 }
 
-/* Services: phone = one row per service (photo | text) */
+/*
+  SERVICES PAGE (phone first)
+  On phones each service is a row (photo | text) with a thin grey line under it.
+*/
 .service-item {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #e5e5e5;
 }
 
-/* Every photo the same shape, cropped not stretched */
+/*
+  Every service photo gets the same 4:3 shape. object-fit cover crops the photo instead
+  of stretching it.
+*/
 .service-img {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
+/* Service name: Bebas Neue, bigger. */
 .service-name {
     font-family: var(--heading-font);
     font-size: 1.8rem;
     margin-bottom: 0.25rem;
 }
 
+/* Price: gold and bold. */
 .service-price {
     color: var(--gold);
     font-weight: 700;
@@ -182,7 +243,13 @@ letter-spacing: 3px;
     margin-bottom: 0;
 }
 
-/* Tablet (768px+): each service becomes a card */
+/*
+  TABLET AND UP (768px and wider): each service becomes a card.
+  height 100%: all the cards in a row are the same height. border + border-radius: thin
+  grey border with rounded corners.
+  overflow hidden: the photo doesn't stick out of the rounded corners. The Book now box
+  (.service-book) gets the same look.
+*/
 @media screen and (min-width: 768px) {
     .service-item,
     .service-book {

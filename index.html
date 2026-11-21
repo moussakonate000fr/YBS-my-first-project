@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Viewport: makes the page fit phone screens (needed for responsive design). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Description: the short text Google shows under the page title in search results
+      (SEO).
+    -->
     <meta name="description" content="Yaya Barber Shop in Wandsworth, London: men's and boys' haircuts, beard trims and shaves. Book online in a few clicks.">
+    <!-- Title: the name shown on the browser tab. -->
     <title>YBS | Home</title>
+    <!--
+      Favicons: the small YBS icon on the browser tab (32px and 16px) and on iPhone home
+      screens (180px).
+    -->
     <link
       rel="icon"
       type="image/png"
@@ -22,23 +32,52 @@
       sizes="180x180"
       href="assets/favicon/apple-touch-icon.png"
     />
+    <!--
+      Bootstrap 5.3 CSS from a CDN: gives me the grid (row, col), the navbar, buttons
+      and spacing classes.
+    -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!--
+      My own styles. Loaded AFTER Bootstrap so my rules win when both style the same
+      thing.
+    -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!--
+      Font Awesome kit: gives the icons (scissors, calendar, social logos). Each icon is
+      an i tag with a class like fa-solid fa-scissors.
+    -->
     <script
       src="https://kit.fontawesome.com/a1428b703b.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!--
+      NAVBAR (the same on every page)
+      navbar-expand-lg: full menu from laptop size (992px), burger button below that.
+      position-absolute top-0 start-0 w-100: the navbar sits on top of the hero photo,
+      full width.
+      z-3: keeps it above the photo. data-bs-theme="dark": white links and white burger
+      icon for a dark background.
+    -->
     <nav
       class="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 z-3"
       data-bs-theme="dark"
     >
       <div class="container-fluid">
+        <!--
+          Logo: the gold YBS text (style.css: .navbar-brand). Clicking it goes back to
+          Home.
+        -->
         <a class="navbar-brand" href="index.html">YBS</a>
+        <!--
+          Burger button (phones and tablets). data-bs-target="#navbarNav" points to the
+          menu below; Bootstrap JavaScript opens and closes it. aria-label tells screen
+          readers what the button does.
+        -->
         <button
           class="navbar-toggler"
           type="button"
@@ -50,7 +89,16 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!--
+          The menu: Bootstrap hides it on small screens and shows it when the burger is
+          clicked.
+        -->
         <div class="collapse navbar-collapse" id="navbarNav">
+          <!--
+            ms-auto pushes the links to the right. The link of the current page has
+            class "active" and aria-current="page" (tells screen readers which page you
+            are on).
+          -->
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html"
@@ -67,23 +115,41 @@
         </div>
       </div>
     </nav>
-    <!-- Main content -->
+    <!-- MAIN CONTENT: everything between the navbar and the footer. -->
     <main>
-      <!-- Hero: big photo, title and Book now button -->
+      <!--
+        HERO: big photo with a dark layer on top (style.css: #hero). d-flex flex-column
+        justify-content-center align-items-center: puts the title, text and button in
+        the middle, one under the other. px-3: space on the sides on phones.
+      -->
       <section
         id="hero"
         class="d-flex flex-column justify-content-center align-items-center text-center text-white px-3"
       >
+        <!--
+          display-3: one of Bootstrap's big heading sizes. Only one h1 per page (good
+          for SEO and screen readers).
+        -->
         <h1 class="display-3">Fresh cuts in Wandsworth</h1>
         <p class="fst-italic fs-5 mb-4">
           Men's and boys' haircuts, beard trims and shaves
         </p>
+        <!--
+          btn = Bootstrap button, btn-gold = my gold style (style.css), btn-lg = large.
+          It links to the Book page.
+        -->
         <a href="book.html" class="btn btn-gold btn-lg">Book now</a>
       </section>
-      <!-- Add the section "Why choose us"-->
+      <!--
+        WHY CHOOSE US: the shop's story and 3 reasons. py-5: big padding top and bottom.
+      -->
       <section id="why" class="py-5">
         <div class="container text-center">
           <h2 class="section-title">Why choose us</h2>
+          <!--
+            Shop story. col-md-8: from tablet the text is 8 of 12 columns wide (shorter
+            lines are easier to read). mx-auto: centred. fst-italic: italic.
+          -->
           <p class="col-md-8 mx-auto mt-4 mb-5 fst-italic">
             Yaya opened the shop on his own 13 years ago, with one chair and a
             pair of clippers. Today Yaya Barber Shop is a friendly part of
@@ -92,6 +158,11 @@
             trims and hot towel shaves. Walk in looking good, walk out looking
             sharp.
           </p>
+          <!--
+            3 reasons. Bootstrap cuts every row into 12 parts: col-md-4 = 4 parts, so
+            from tablet the 3 boxes sit side by side (4 + 4 + 4 = 12). On phones they
+            stack. The icons are gold and big because of "#why svg" in style.css.
+          -->
           <div class="row">
             <div class="col-md-4">
               <i class="fa-solid fa-scissors"></i>
@@ -112,11 +183,20 @@
           </div>
         </div>
       </section>
+      <!--
+        VISIT US: opening hours on the left, map on the right (col-md-6 + col-md-6 = 12
+        parts). On phones they stack.
+      -->
       <section id="visit" class="py-5">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
               <h3 class="text-center section-title">Business Hours</h3>
+              <!--
+                Opening hours. Each line is d-flex: the day on the left, the time on the
+                right, and the empty span with class "dots" grows to fill the gap with a
+                dotted gold line (style.css: .dots).
+              -->
               <ul class="list-unstyled">
                 <li class="d-flex justify-content-between">
                   <span>Monday</span><span class="dots"></span
@@ -150,6 +230,12 @@
             </div>
             <div class="col-md-6">
               <h3 class="text-center section-title">Map</h3>
+              <!--
+                Google map. Bootstrap's "ratio" class keeps the map's shape when the
+                screen size changes (the shape is set in style.css: #visit .ratio).
+                title: read by screen readers. loading="lazy": the map only loads when
+                you scroll near it, so the page opens faster.
+              -->
               <div class="ratio">
                 <iframe
                   title="Map showing YBS at 12 Garratt Lane"
@@ -168,11 +254,20 @@
       </section>
     </main>
 
-    <!-- Footer -->
+    <!--
+      FOOTER (the same on every page). bg-dark text-white: dark background, white text.
+      text-center py-4: centred, with space above and below.
+    -->
     <footer class="bg-dark text-white text-center py-4">
       <p class="mb-1">12 Garratt Lane, Wandsworth, London SW18</p>
       <p>Tel: 020 7946 0123</p>
-      <!-- Social links: open in a new tab -->
+      <!--
+        Social links in a row: d-flex puts them side by side, justify-content-center
+        centres them, gap-3 adds space between them.
+        Each link: target="_blank" opens a new tab, rel="noopener" is a safety rule for
+        new tabs, aria-label tells screen readers what the icon is, class social-icon
+        draws the gold circle (style.css).
+      -->
       <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
         <li>
           <a
@@ -220,6 +315,10 @@
         </li>
       </ul>
     </footer>
+    <!--
+      Bootstrap JavaScript: makes the burger menu open and close. Placed at the end of
+      body so the page content shows first.
+    -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

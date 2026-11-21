@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Viewport: makes the page fit phone screens (needed for responsive design). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Description: the short text Google shows under the page title in search results
+      (SEO).
+    -->
     <meta name="description" content="Services and prices at Yaya Barber Shop, Wandsworth: haircut, haircut and beard, beard trim, shave and kids cut.">
+    <!-- Title: the name shown on the browser tab. -->
     <title>YBS | Services</title>
+    <!--
+      Favicons: the small YBS icon on the browser tab (32px and 16px) and on iPhone home
+      screens (180px).
+    -->
     <link
       rel="icon"
       type="image/png"
@@ -22,23 +32,52 @@
       sizes="180x180"
       href="assets/favicon/apple-touch-icon.png"
     />
+    <!--
+      Bootstrap 5.3 CSS from a CDN: gives me the grid (row, col), the navbar, buttons
+      and spacing classes.
+    -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!--
+      My own styles. Loaded AFTER Bootstrap so my rules win when both style the same
+      thing.
+    -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!--
+      Font Awesome kit: gives the icons (scissors, calendar, social logos). Each icon is
+      an i tag with a class like fa-solid fa-scissors.
+    -->
     <script
       src="https://kit.fontawesome.com/a1428b703b.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!--
+      NAVBAR (the same on every page)
+      navbar-expand-lg: full menu from laptop size (992px), burger button below that.
+      position-absolute top-0 start-0 w-100: the navbar sits on top of the hero photo,
+      full width.
+      z-3: keeps it above the photo. data-bs-theme="dark": white links and white burger
+      icon for a dark background.
+    -->
     <nav
       class="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 z-3"
       data-bs-theme="dark"
     >
       <div class="container-fluid">
+        <!--
+          Logo: the gold YBS text (style.css: .navbar-brand). Clicking it goes back to
+          Home.
+        -->
         <a class="navbar-brand" href="index.html">YBS</a>
+        <!--
+          Burger button (phones and tablets). data-bs-target="#navbarNav" points to the
+          menu below; Bootstrap JavaScript opens and closes it. aria-label tells screen
+          readers what the button does.
+        -->
         <button
           class="navbar-toggler"
           type="button"
@@ -50,7 +89,16 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!--
+          The menu: Bootstrap hides it on small screens and shows it when the burger is
+          clicked.
+        -->
         <div class="collapse navbar-collapse" id="navbarNav">
+          <!--
+            ms-auto pushes the links to the right. The link of the current page has
+            class "active" and aria-current="page" (tells screen readers which page you
+            are on).
+          -->
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
@@ -70,31 +118,61 @@
         </div>
       </div>
     </nav>
-    <!-- Main content -->
+    <!-- MAIN CONTENT: everything between the navbar and the footer. -->
     <main>
-      <!-- Hero: services photo, title and Book now button -->
+      <!--
+        HERO: same as the Home hero, but the extra class services-hero swaps the photo
+        (style.css: #hero.services-hero).
+      -->
       <section
         id="hero"
         class="services-hero d-flex flex-column justify-content-center align-items-center text-center text-white px-3"
       >
+        <!-- &amp; is how HTML writes the & sign. -->
         <h1 class="display-3">Services &amp; Prices</h1>
         <p class="fst-italic fs-5 mb-4">Clear prices, no surprises</p>
+        <!--
+          btn = Bootstrap button, btn-gold = my gold style (style.css), btn-lg = large.
+          It links to the Book page.
+        -->
         <a href="book.html" class="btn btn-gold btn-lg">Book now</a>
       </section>
 
-      <!-- Services and prices: cards in the Bootstrap grid -->
 
+      <!-- SERVICES AND PRICES -->
       <section id="prices" class="py-5">
         <div class="container">
           <h2 class="text-center section-title">Our services &amp; prices</h2>
 
-          <!-- Services: phone = rows, tablet = 2 cards, laptop = 3 cards -->
+          <!--
+            OUTER GRID: 6 columns (5 services + the Book now box).
+            Bootstrap cuts every row into 12 parts:
+            col-12 = 12 parts = 1 per row on phones
+            col-md-6 = 6 parts = 2 per row on tablets (768px and up)
+            col-lg-4 = 4 parts = 3 per row on laptops (992px and up)
+            g-4: space between the columns. mt-2: a little space on top.
+          -->
           <div class="row g-4 mt-2">
             <!-- Haircut -->
             <div class="col-12 col-md-6 col-lg-4">
+              <!--
+                INNER GRID (the same for every service): a second row inside the column,
+                with a photo part and a text part.
+                Phone: photo col-4 (4 of 12 parts = 1/3) and text col-8 (8 of 12 = 2/3)
+                sit side by side (4 + 8 = 12).
+                Tablet and laptop: both are col-md-12 (all 12 parts = full width), so
+                the text goes under the photo and it looks like a card.
+                g-0: no gap between photo and text. align-items-center: photo and text
+                lined up in the middle. service-item: the line under each row and the
+                card border (style.css).
+              -->
               <div
                 class="row g-0 align-items-center align-content-start service-item"
               >
+                <!--
+                  Photo part. class service-img gives every photo the same 4:3 shape
+                  (style.css). alt describes the photo for screen readers.
+                -->
                 <div class="col-4 col-md-12">
                   <img
                     src="assets/images/haircut.jpg"
@@ -102,8 +180,16 @@
                     alt="Barber giving a client a haircut"
                   />
                 </div>
+                <!--
+                  Text part. px-3: space left and right. pt-md-3: space on top from
+                  tablet, when the text sits under the photo.
+                -->
                 <div class="col-8 col-md-12 px-3 pt-md-3">
                   <h3 class="service-name">Haircut</h3>
+                  <!--
+                    Short description. d-none hides it on phones (keeps the rows short),
+                    d-md-block shows it from tablet.
+                  -->
                   <p class="d-none d-md-block">
                     A fresh cut, styled the way you like it.
                   </p>
@@ -200,7 +286,11 @@
               </div>
             </div>
 
-            <!-- Book now: a button on phone, a 6th card on tablet and laptop -->
+            <!--
+              BOOK NOW BOX (6th column): d-flex + justify-content-center + align-items-
+              center centre the button left/right and top/bottom. From tablet it gets
+              the same border as the cards (style.css: .service-book).
+            -->
             <div class="col-12 col-md-6 col-lg-4">
               <div
                 class="service-book d-flex justify-content-center align-items-center"
@@ -213,11 +303,20 @@
       </section>
     </main>
 
-    <!-- Footer -->
+    <!--
+      FOOTER (the same on every page). bg-dark text-white: dark background, white text.
+      text-center py-4: centred, with space above and below.
+    -->
     <footer class="bg-dark text-white text-center py-4">
       <p class="mb-1">12 Garratt Lane, Wandsworth, London SW18</p>
       <p>Tel: 020 7946 0123</p>
-      <!-- Social links: open in a new tab -->
+      <!--
+        Social links in a row: d-flex puts them side by side, justify-content-center
+        centres them, gap-3 adds space between them.
+        Each link: target="_blank" opens a new tab, rel="noopener" is a safety rule for
+        new tabs, aria-label tells screen readers what the icon is, class social-icon
+        draws the gold circle (style.css).
+      -->
       <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
         <li>
           <a
@@ -265,6 +364,10 @@
         </li>
       </ul>
     </footer>
+    <!--
+      Bootstrap JavaScript: makes the burger menu open and close. Placed at the end of
+      body so the page content shows first.
+    -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
